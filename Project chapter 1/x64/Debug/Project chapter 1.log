@@ -1,2 +1,13 @@
 ﻿  DescriptiveStatsCalculator.cpp
-  Project chapter 1.vcxproj -> C:\Users\takag\source\repos\Project chapter 1\x64\Debug\Project chapter 1.exe
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(295,60): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(297,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(305,42): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(307,40): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(320,60): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(322,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(330,42): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(332,40): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(334,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(335,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\Project chapter 1\DescriptiveStatsCalculator.cpp(343,20): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Project chapter 1.vcxproj -> C:\Users\loc18\C++\CMPR131\Project-for-131\Project-for-131\x64\Debug\Project chapter 1.exe

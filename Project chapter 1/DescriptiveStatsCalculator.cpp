@@ -1,4 +1,4 @@
-#include "DescriptiveStatsCalculator.h"
+﻿#include "DescriptiveStatsCalculator.h"
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -257,40 +257,135 @@ double DescriptiveStatsCalculator::findVariance() const {
 }
 
 double DescriptiveStatsCalculator::findMidrange() const {
-    // TODO: To be implemented by team
-    cout << "\n\t[Not yet implemented: findMidrange]\n";
-    return 0.0;
+    
+    return (data[0] + data[size-1]) / 2.0;
 }
 
 void DescriptiveStatsCalculator::findQuartiles(double& q1, double& q2, double& q3) const {
-    // TODO: To be implemented by team
-    cout << "\n\t[Not yet implemented: findQuartiles]\n";
-    q1 = q2 = q3 = 0.0;
+    //Q2
+    if (getSize() % 2 == 0)
+        q2 = (data[getSize() / 2 - 1] + data[getSize() / 2]) / 2.0;
+    else
+        q2 = data[getSize() / 2];
+    // Q1
+    int leftSize = getSize()/ 2;
+
+    if (leftSize % 2 == 0)
+        q1 = (data[leftSize / 2 - 1] + data[leftSize / 2]) / 2.0;
+    else
+        q1 = data[leftSize / 2];
+
+    // Q3
+    int start = (getSize() % 2 == 0) ? getSize() / 2 : getSize() / 2 + 1;
+    int rightSize = getSize() - start;
+
+    if (rightSize % 2 == 0)
+        q3 = (data[start + rightSize / 2 - 1] +
+            data[start + rightSize / 2]) / 2.0;
+    else
+        q3 = data[start + rightSize / 2];
 }
 
 double DescriptiveStatsCalculator::findInterquartileRange() const {
-    // TODO: To be implemented by team
-    cout << "\n\t[Not yet implemented: findInterquartileRange]\n";
-    return 0.0;
+   
+    int leftSize = getSize() / 2;
+    int q1 = 0;
+    int q3 = 0;
+    if (leftSize % 2 == 0)
+        q1 = (data[leftSize / 2 - 1] + data[leftSize / 2]) / 2.0;
+    else
+        q1 = data[leftSize / 2];
+
+    // Q3
+    int start = (getSize() % 2 == 0) ? getSize() / 2 : getSize() / 2 + 1;
+    int rightSize = getSize() - start;
+
+    if (rightSize % 2 == 0)
+        q3 = (data[start + rightSize / 2 - 1] +
+            data[start + rightSize / 2]) / 2.0;
+    else
+        q3 = data[start + rightSize / 2];
+    return q3-q1;
 }
 
 int DescriptiveStatsCalculator::findOutliers(double*& outliers) const {
-    // TODO: To be implemented by team
-    cout << "\n\t[Not yet implemented: findOutliers]\n";
-    outliers = nullptr;
+    int leftSize = getSize() / 2;
+    int q1 = 0;
+    int q3 = 0;
+    int IQR;
+    int LowerBound = 0;
+    int UppepBound = 0;
+    //Q1
+    if (leftSize % 2 == 0)
+        q1 = (data[leftSize / 2 - 1] + data[leftSize / 2]) / 2.0;
+    else
+        q1 = data[leftSize / 2];
+
+    // Q3
+    int start = (getSize() % 2 == 0) ? getSize() / 2 : getSize() / 2 + 1;
+    int rightSize = getSize() - start;
+
+    if (rightSize % 2 == 0)
+        q3 = (data[start + rightSize / 2 - 1] +
+            data[start + rightSize / 2]) / 2.0;
+    else
+        q3 = data[start + rightSize / 2];
+    IQR = q3 - q1;
+    LowerBound = q1 - (1.5 * IQR);
+    UppepBound = q3 + (1.5 * IQR);
+
+    for (int i = 0; i < getSize(); i++)
+    {
+        outliers = &data[i];
+        if (*outliers < LowerBound || *outliers > UppepBound)
+        {
+           
+            return *outliers;
+        }
+    }
     return 0;
 }
 
 double DescriptiveStatsCalculator::findSumOfSquares() const {
-    // TODO: To be implemented by team
-    cout << "\n\t[Not yet implemented: findSumOfSquares]\n";
-    return 0.0;
+    double sum = 0;
+
+    // Calculate Mean
+    for (int i = 0; i < getSize(); i++)
+    {
+        sum += data[i];
+    }
+
+    double mean = sum / getSize();
+
+    // Calculate Sum of Squares
+    double ss = 0;
+
+    for (int i = 0; i < getSize(); i++)
+    {
+        ss += pow(data[i] - mean, 2);
+    }
+    return ss;
 }
 
 double DescriptiveStatsCalculator::findMeanAbsoluteDeviation() const {
-    // TODO: To be implemented by team
-    cout << "\n\t[Not yet implemented: findMeanAbsoluteDeviation]\n";
-    return 0.0;
+    double sum = 0;
+
+    
+    for (int i = 0; i < getSize(); i++)
+    {
+        sum += data[i];
+    }
+
+    double mean = sum / getSize();
+    double deviation = 0;
+
+    for (int i = 0; i < getSize(); i++)
+    {
+        deviation += abs(data[i] - mean);
+    }
+
+    double mad = deviation / getSize();
+    return mad;
 }
 
 double DescriptiveStatsCalculator::findRootMeanSquare() const {

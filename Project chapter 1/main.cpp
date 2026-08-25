@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // main.cpp
 // Descriptive Statistics Calculator - Chapter 1
 // ============================================================================
@@ -151,24 +151,25 @@ int main()
                 break;
 
             case 'N': {
-                if (checkEmpty(calc, 1)) break;
+                if (checkEmpty(calc, 1)) break;// 1 ptu thi break
+
                 cout << "\n\tOutlier(s) = ";
-                if (calc.getSize() < 4) {
+                if (calc.getSize() < 4) 
+                {
                     cout << "unknown";
-                }
-                else {
+                }//4 ptu thi break 
+                else 
+                {
                     double* outliers = nullptr;
                     int count = calc.findOutliers(outliers);
                     if (count == 0 || outliers == nullptr) {
                         cout << "none";
                     }
-                    else {
-                        for (int i = 0; i < count; ++i) {
-                            if (i > 0) cout << " ";
-                            cout << outliers[i];
-                        }
+                    else {             
+                            cout << *outliers;                        
                     }
-                    if (outliers) delete[] outliers;
+                    outliers = nullptr;
+                    delete[] outliers;
                 }
                 break;
             }
